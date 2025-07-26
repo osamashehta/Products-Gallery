@@ -1,11 +1,11 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-interface LoaderProps {
+interface apiServiceProps {
   endPoint: string;
   method: "GET" | "POST" | "PUT" | "DELETE";
   data?: unknown;
 }
-const Loader = async ({ endPoint, method = "GET", data }: LoaderProps) => {
+const apiService = async ({ endPoint, method = "GET", data }: apiServiceProps) => {
   const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
     timeout: 10000,
@@ -76,4 +76,4 @@ const Loader = async ({ endPoint, method = "GET", data }: LoaderProps) => {
   }
 };
 
-export default Loader;
+export default apiService;
