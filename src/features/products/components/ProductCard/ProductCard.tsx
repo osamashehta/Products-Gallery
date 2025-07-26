@@ -15,7 +15,7 @@ const ProductCard = ({ products }: ProductCardProps) => {
         Latest Products{" "}
       </h3>
       <div className="w-full grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 py-8">
-        {products.map((product) => (
+        {products?.map((product) => (
           <Link
             href={`/products/${product.id}`}
             key={product.id}

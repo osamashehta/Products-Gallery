@@ -6,7 +6,7 @@ export const getProducts = async () => {
       endPoint: '/products',
       method: 'GET'
     });
-    return response.data;
+    return response?.data;
   } catch (error) {
     console.error('Failed to fetch products:', error);
   }
