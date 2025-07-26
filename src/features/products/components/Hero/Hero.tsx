@@ -1,5 +1,5 @@
 "use client";
-import { ProductI } from "../types/products";
+import { ProductI } from "../../types/products";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles

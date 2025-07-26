@@ -1,5 +1,5 @@
 import { getProducts } from "@/features/products/actions/get-products";
-import Hero from "@/features/products/Hero/Hero";
+import Hero from "@/features/products/components/Hero/Hero";
 import { ProductI } from "@/features/products/types/products";
 import React from "react";
 
@@ -14,18 +14,16 @@ const page = async () => {
     "electronics",
     "jewelery",
   ];
-  const gallerySwiper = categories
-    .map((category) =>
-      data?.find((item: ProductI) => item.category === category)
-    );
+  const gallerySwiper = categories.map((category) =>
+    data?.find((item: ProductI) => item.category === category)
+  );
 
   console.log("Gallery Swiper data:", gallerySwiper);
 
   return (
-  <>
-  <Hero gallerySwiper={gallerySwiper}/>
-  </>
-  
+    <>
+      <Hero gallerySwiper={gallerySwiper} />
+    </>
   );
 };
 
