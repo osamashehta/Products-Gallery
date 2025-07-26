@@ -1,11 +1,14 @@
 import axios from "axios";
-import { toast } from "react-toastify";
 interface apiServiceProps {
   endPoint: string;
   method: "GET" | "POST" | "PUT" | "DELETE";
   data?: unknown;
 }
-const apiService = async ({ endPoint, method = "GET", data }: apiServiceProps) => {
+const apiService = async ({
+  endPoint,
+  method = "GET",
+  data,
+}: apiServiceProps) => {
   const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL || "https://fakestoreapi.com",
     timeout: 10000,
@@ -24,29 +27,22 @@ const apiService = async ({ endPoint, method = "GET", data }: apiServiceProps) =
         switch (status) {
           case 400:
             console.log(data);
-            toast.error( "Bad request.");
             break;
           case 401:
             console.log(data);
-            toast.error(
-               "Unauthorized access. Please log in again."
-            );
+            toast.error("Unauthorized access. Please log in again.");
             break;
           case 403:
             console.error(data);
-            toast.error( "Forbidden access");
             break;
           case 404:
             console.log(data);
-            toast.error( "Resource not found.");
             break;
           case 500:
             console.error(data);
-            toast.error( "Server error");
             break;
           default:
             console.log(data);
-            toast.error( "An unexpected error occurred.");
         }
       }
       console.error(`${method} Error for:`, endPoint, error.message);
