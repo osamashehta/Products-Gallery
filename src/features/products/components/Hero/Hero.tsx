@@ -16,7 +16,7 @@ const Hero = ({ gallerySwiper }: HeroProps) => {
     <Swiper
       navigation={true}
       modules={[Navigation]}
-      className="mySwiper w-screen h-dvh"
+      className="mySwiper w-full h-dvh bg-gradient-to-b from-white to-[#E3E6E6]"
     >
       {gallerySwiper.map((slide) => (
         <SwiperSlide key={slide.id} className="relative w-full h-full">

@@ -1,10 +1,13 @@
 import React from "react";
-
-const CustomContainer = ({ children }: { children: React.ReactNode }) => {
+interface CustomContainerProps {
+  children: React.ReactNode;
+  className?: string;
+}
+const CustomContainer = ({ children, className }: CustomContainerProps) => {
   return (
-    <div className="custom-container max-w-[1280px] w-[95%] sm:w-[90%] mx-auto px-2">
+    <section className={`custom-container overflow-hidden max-w-[1280px] w-[95%] sm:w-[90%] mx-auto px-2 ${className}`}>
       {children}
-    </div>
+    </section>
   );
 };
 

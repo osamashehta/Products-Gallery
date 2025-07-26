@@ -24,29 +24,29 @@ const apiService = async ({ endPoint, method = "GET", data }: apiServiceProps) =
         switch (status) {
           case 400:
             console.log(data);
-            toast.error(data.message || "Bad request.");
+            toast.error( "Bad request.");
             break;
           case 401:
             console.log(data);
             toast.error(
-              data.message || "Unauthorized access. Please log in again."
+               "Unauthorized access. Please log in again."
             );
             break;
           case 403:
             console.error(data);
-            toast.error(data.message || "Forbidden access");
+            toast.error( "Forbidden access");
             break;
           case 404:
             console.log(data);
-            toast.error(data.message || "Resource not found.");
+            toast.error( "Resource not found.");
             break;
           case 500:
             console.error(data);
-            toast.error(data.message || "Server error");
+            toast.error( "Server error");
             break;
           default:
             console.log(data);
-            toast.error(data.message || "An unexpected error occurred.");
+            toast.error( "An unexpected error occurred.");
         }
       }
       console.error(`${method} Error for:`, endPoint, error.message);
