@@ -26,19 +26,19 @@ const apiService = async ({
         const { status, data } = error.response;
         switch (status) {
           case 400:
-            console.log(data);
+            console.log('Bad Request:', data);
             break;
           case 401:
-            console.log(data);
+            console.log('Unauthorized:', data);
             break;
           case 403:
-            console.error(data);
+            console.error('Forbidden:', data);
             break;
           case 404:
-            console.log(data);
+            console.log('Not Found:', data);
             break;
           case 500:
-            console.error(data);
+            console.error('Server Error:', data);
             break;
           default:
             console.log(data);
