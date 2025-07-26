@@ -30,7 +30,6 @@ const apiService = async ({
             break;
           case 401:
             console.log(data);
-            toast.error("Unauthorized access. Please log in again.");
             break;
           case 403:
             console.error(data);
