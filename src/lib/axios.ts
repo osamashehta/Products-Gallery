@@ -7,7 +7,7 @@ interface apiServiceProps {
 }
 const apiService = async ({ endPoint, method = "GET", data }: apiServiceProps) => {
   const api = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL,
+    baseURL: process.env.NEXT_PUBLIC_API_URL || "https://fakestoreapi.com",
     timeout: 10000,
     headers: {
       "Content-Type": "application/json",
