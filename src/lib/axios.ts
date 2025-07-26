@@ -14,9 +14,13 @@ const apiService = async ({
     timeout: 10000,
     headers: {
       "Content-Type": "application/json",
+      "Accept": "application/json",
     },
   });
 
+  if (!process.env.NEXT_PUBLIC_API_URL) {
+  throw new Error("Missing API_URL environment variable");
+}
   api.interceptors.response.use(
     (response) => {
       return response;
