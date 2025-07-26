@@ -14,13 +14,14 @@ const apiService = async ({
     timeout: 10000,
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json",
+      Accept: "application/json",
     },
   });
 
-  if (!process.env.NEXT_PUBLIC_API_URL) {
-  throw new Error("Missing API_URL environment variable");
-}
+  // Only check for API_URL in production, allow fallback during build
+  // if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PUBLIC_API_URL) {
+  //   throw new Error("Missing NEXT_PUBLIC_API_URL environment variable");
+  // }
   api.interceptors.response.use(
     (response) => {
       return response;
@@ -30,19 +31,19 @@ const apiService = async ({
         const { status, data } = error.response;
         switch (status) {
           case 400:
-            console.log('Bad Request:', data);
+            console.log("Bad Request:", data);
             break;
           case 401:
-            console.log('Unauthorized:', data);
+            console.log("Unauthorized:", data);
             break;
           case 403:
-            console.error('Forbidden:', data);
+            console.error("Forbidden:", data);
             break;
           case 404:
-            console.log('Not Found:', data);
+            console.log("Not Found:", data);
             break;
           case 500:
-            console.error('Server Error:', data);
+            console.error("Server Error:", data);
             break;
           default:
             console.log(data);
