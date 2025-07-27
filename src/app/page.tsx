@@ -23,6 +23,19 @@ const page = async ({ searchParams }: PageProps) => {
   const gallerySwiper = categories?.map((category) =>
     data?.find((item: ProductI) => item.category === category)
   );
+  const filteredProducts = data?.filter((item: ProductI) => {
+    if (category && category !== "all") {
+      return item.category === category;
+    }
+    if (query) {
+      const queryStr = Array.isArray(query) ? query[0] : query;
+      return (
+        item.title.toLowerCase().includes(queryStr?.toLowerCase() || "") ||
+        item.description.toLowerCase().includes(queryStr?.toLowerCase() || "")
+      );
+    }
+    return data; 
+  });
 
   console.log("Gallery Swiper data:", gallerySwiper);
 
@@ -36,7 +49,7 @@ const page = async ({ searchParams }: PageProps) => {
 
   return (
     <>
-      <Hero gallerySwiper={gallerySwiper} />
+      <Hero gallerySwiper={filteredProducts} />
       <Filter />
       <div className="w-full bg-[#E3E6E6]">
         <ProductCard products={data} />
