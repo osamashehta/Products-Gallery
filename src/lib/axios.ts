@@ -13,15 +13,22 @@ const apiService = async ({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
     timeout: 10000,
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      Accept: "application/json, text/plain, */*",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Accept-Encoding": "gzip, deflate, br",
+      Connection: "keep-alive",
+      "Cache-Control": "no-cache",
+      Pragma: "no-cache",
+      "Sec-Fetch-Dest": "empty",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Site": "cross-site",
+      Referer: "https://google.com/",
+      Origin: "https://google.com",
     },
   });
 
-  // Only check for API_URL in production, allow fallback during build
-  // if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PUBLIC_API_URL) {
-  //   throw new Error("Missing NEXT_PUBLIC_API_URL environment variable");
-  // }
   api.interceptors.response.use(
     (response) => {
       return response;

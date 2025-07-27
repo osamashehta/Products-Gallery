@@ -1,6 +1,6 @@
 "use server";
 import apiService from "@/lib/axios";
-import { mockProducts } from "../data/mock-products";
+// import { mockProducts } from "../data/mock-products";
 
 // Function to make request with Cloudflare bypass techniques
 const fetchWithCloudflareBypass = async () => {
@@ -39,17 +39,17 @@ const fetchWithCloudflareBypass = async () => {
 };
 
 export const getProducts = async () => {
-  try {
+  // try {
     // Try multiple methods in order of preference
 
     // Method 1: Try direct fetch with Cloudflare bypass
-    try {
-      const data = await fetchWithCloudflareBypass();
-      console.log("✅ Direct fetch succeeded");
-      return data;
-    } catch (directError) {
-      console.log("❌ Direct fetch failed, trying apiService...");
-    }
+    // try {
+    //   const data = await fetchWithCloudflareBypass();
+    //   console.log("✅ Direct fetch succeeded");
+    //   return data;
+    // } catch (directError) {
+    //   console.log("❌ Direct fetch failed, trying apiService...");
+    // }
 
     // Method 2: Try your existing API service
     try {
@@ -64,28 +64,28 @@ export const getProducts = async () => {
     }
 
     // Method 3: Try internal API route (if exists)
-    try {
-      const response = await fetch("/api/products", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+    // try {
+    //   const response = await fetch("/api/products", {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log("✅ Internal API succeeded");
-        return data;
-      }
-    } catch (internalError) {
-      console.log("❌ Internal API failed");
-    }
+    //   if (response.ok) {
+    //     const data = await response.json();
+    //     console.log("✅ Internal API succeeded");
+    //     return data;
+    //   }
+    // } catch (internalError) {
+    //   console.log("❌ Internal API failed");
+    // }
 
     // Method 4: Fallback to mock data
-    console.log("🔄 Using fallback mock data");
-    return mockProducts;
-  } catch (error) {
-    console.error("All methods failed, using mock data:", error);
-    return mockProducts;
-  }
+  //   console.log("🔄 Using fallback mock data");
+  //   return mockProducts;
+  // } catch (error) {
+  //   console.error("All methods failed, using mock data:", error);
+  //   return mockProducts;
+  // }
 };
