@@ -10,16 +10,10 @@ interface PageProps {
 const page = async ({ searchParams }: PageProps) => {
   const data = await getProducts();
   console.log("Products data:", data);
-  const { category, search } = await searchParams || {};
-  console.log("Search Params:", searchParams);
-  
-  // // Check if searchParams contains a category filter
-  // if (searchParams?.category) {
-  //   const filteredData = data?.filter((item: ProductI) => item.category === searchParams.category);
-  // }
-  // console.log("Filtered data:", filteredData);
+  const { category, query } = await searchParams || {};
+  console.log("query Params:",query);
+  console.log("category Params:",category);
 
-  // Extract one product from each category
   const categories = [
     "men's clothing",
     "women's clothing",
