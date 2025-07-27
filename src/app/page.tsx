@@ -52,7 +52,7 @@ const page = async ({ searchParams }: PageProps) => {
       <Hero gallerySwiper={filteredProducts} />
       <Filter />
       <div className="w-full bg-[#E3E6E6]">
-        <ProductCard products={data} />
+        <ProductCard products={filteredProducts} />
       </div>
     </>
   );
