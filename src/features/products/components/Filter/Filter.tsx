@@ -34,10 +34,10 @@ const Filter = () => {
           className="bg-transparent border-none focus:outline-none"
         >
           <option value="all">All</option>
-          <option value="women's clothing">women's clothing</option>
+          <option value="women&apos;s clothing">women's clothing</option>
           <option value="electronics">Electronics</option>
           <option value="jewelery">jewelery</option>
-          <option value="men's clothing">men's clothing</option>
+          <option value="men&apos;s clothing">men's clothing</option>
         </select>
         <button
           onClick={() => handleFilter()}
