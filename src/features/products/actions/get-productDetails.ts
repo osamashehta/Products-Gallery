@@ -1,3 +1,4 @@
+"use client";
 import apiService from "@/lib/axios";
 export const getProductDetails = async (id: string) => {
   try {
