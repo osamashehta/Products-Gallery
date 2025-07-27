@@ -11,7 +11,7 @@ interface PageProps {
 const page = async ({ params }: PageProps) => {
   const { id } = await params;
   const data: ProductI = await getProductDetails(id);
-  console.log("Product details data:", data);
+//   console.log("Product details data:", data);
 
   return (
     <CustomContainer className="my-[40px] grid grid-cols-1  lg:grid-cols-2 gap-4">
@@ -19,8 +19,10 @@ const page = async ({ params }: PageProps) => {
         <Image priority src={data?.image} alt={data?.title} fill />
       </div>
       <div className="flex flex-col justify-start items-start gap-4">
-        <h1 className="text-[24px] font-bold text-[#44326F]">{data?.title}</h1>
-        <p className="text-[16px] font-medium text-gray-600">
+        <h1 className="text-[16px] md:text-[24px] font-medium md:font-bold text-[#44326F]">
+          {data?.title}
+        </h1>
+        <p className="text-[12px] md:text-[16px] font-medium text-gray-600">
           {data?.description}
         </p>
 
