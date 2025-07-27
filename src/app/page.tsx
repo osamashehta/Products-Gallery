@@ -4,15 +4,23 @@ import Hero from "@/features/products/components/Hero/Hero";
 import ProductCard from "@/features/products/components/ProductCard/ProductCard";
 import { ProductI } from "@/features/products/types/products";
 import React from "react";
+
+// Enable ISR - page will be regenerated every hour
+export const revalidate = 3600;
+
 interface PageProps {
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: Promise<{ [key: string]: string  | undefined }>;
 }
+
 const page = async ({ searchParams }: PageProps) => {
   const data = await getProducts();
   console.log("Products data:", data);
-  const { category, query } = await searchParams || {};
-  console.log("query Params:",query);
-  console.log("category Params:",category);
+
+  // Await searchParams since it's now a Promise in Next.js 15
+  const resolvedSearchParams = await searchParams;
+  const { category, query } = resolvedSearchParams || {};
+  console.log("query Params:", query);
+  console.log("category Params:", category);
 
   const categories = [
     "men's clothing",
@@ -28,13 +36,12 @@ const page = async ({ searchParams }: PageProps) => {
       return item.category === category;
     }
     if (query) {
-      const queryStr = Array.isArray(query) ? query[0] : query;
       return (
-        item.title.toLowerCase().includes(queryStr?.toLowerCase() || "") ||
-        item.description.toLowerCase().includes(queryStr?.toLowerCase() || "")
+        item.title.toLowerCase().includes(query?.toLowerCase() || "") ||
+        item.description.toLowerCase().includes(query?.toLowerCase() || "")
       );
     }
-    return data; 
+    return data;
   });
 
   console.log("Gallery Swiper data:", gallerySwiper);
