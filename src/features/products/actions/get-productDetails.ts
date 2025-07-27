@@ -1,7 +1,4 @@
-"use server"
-
 import apiService from "@/lib/axios";
-
 export const getProductDetails = async (id: string) => {
   try {
     const response = await apiService({

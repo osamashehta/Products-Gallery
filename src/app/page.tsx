@@ -1,12 +1,23 @@
 import { getProducts } from "@/features/products/actions/get-products";
+import Filter from "@/features/products/components/Filter/Filter";
 import Hero from "@/features/products/components/Hero/Hero";
 import ProductCard from "@/features/products/components/ProductCard/ProductCard";
 import { ProductI } from "@/features/products/types/products";
 import React from "react";
-
-const page = async () => {
+interface PageProps {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+const page = async ({ searchParams }: PageProps) => {
   const data = await getProducts();
   console.log("Products data:", data);
+  const { category, search } = await searchParams || {};
+  console.log("Search Params:", searchParams);
+  
+  // // Check if searchParams contains a category filter
+  // if (searchParams?.category) {
+  //   const filteredData = data?.filter((item: ProductI) => item.category === searchParams.category);
+  // }
+  // console.log("Filtered data:", filteredData);
 
   // Extract one product from each category
   const categories = [
@@ -32,6 +43,7 @@ const page = async () => {
   return (
     <>
       <Hero gallerySwiper={gallerySwiper} />
+      <Filter />
       <div className="w-full bg-[#E3E6E6]">
         <ProductCard products={data} />
       </div>
