@@ -10,7 +10,7 @@ interface ProductCardProps {
 const ProductCard = ({ products }: ProductCardProps) => {
   return (
     <CustomContainer className="py-[60px] w-full">
-      <h3 className="text-[18px] font-bold text-[rgb(67 49 110)] my-2">
+      <h3 className="text-[18px] font-bold text-[#44326F] my-2">
         {" "}
         Latest Products{" "}
       </h3>
@@ -29,7 +29,7 @@ const ProductCard = ({ products }: ProductCardProps) => {
               className="w-full h-[300px]"
             />
             <div className="flex items-center justify-between w-full ">
-              <h4 className="text-[16px] font-semibold text-[rgb(67 49 110)] my-3">
+              <h4 className="text-[16px] font-semibold text-[#44326F] my-3">
                 {product.title}
               </h4>
               <div className="rating shrink-0 flex items-center gap-1 text-[14px] font-medium text-[#9a8b38]">
