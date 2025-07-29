@@ -31,35 +31,31 @@ This Products Gallery is a full-featured e-commerce frontend application that sh
 
 _Hero section featuring products from different categories with smooth transitions and navigation controls_
 
-![Hero Slider](https://via.placeholder.com/800x400/2563eb/ffffff?text=Hero+Slider+with+Featured+Products)
+![Hero Slider]
 
 ### 🛍️ Products Grid
 
 _Responsive product grid with ratings, prices, and category badges_
 
-![Products Grid](https://via.placeholder.com/800x600/10b981/ffffff?text=Responsive+Products+Grid+Layout)
+![Products Grid]
 
 ### 🔍 Search & Filter Interface
 
 _Advanced filtering options with real-time search functionality_
 
-![Search and Filter](https://via.placeholder.com/800x400/f59e0b/ffffff?text=Search+%26+Filter+Interface)
+![Search and Filter]
 
 ### ⭐ Rating System
 
 _Interactive star ratings with half-star precision and review counts_
 
-![Rating System](https://via.placeholder.com/400x200/ef4444/ffffff?text=Interactive+Star+Ratings)
+![Rating System]
 
 ### 📱 Mobile Responsive Design
 
 _Optimized mobile experience with touch-friendly navigation_
 
-![Mobile Design](https://via.placeholder.com/300x600/8b5cf6/ffffff?text=Mobile+Responsive+Design)
-
-### 🎥 Live Demo
-
-**🌐 [View Live Demo](https://products-gallery-omega.vercel.app/)**
+![Mobile Design]
 
 ## 🧱 Tech Stack Used
 
@@ -240,8 +236,6 @@ The application implements a multi-layered approach to handle Cloudflare protect
    - Output Directory: `.next`
    - Install Command: `pnpm install`
 3. Deploy automatically on push to main branch
-
-**Live Demo:** [https://products-gallery-omega.vercel.app/](https://products-gallery-omega.vercel.app/)
 
 ### Other Platforms
 
