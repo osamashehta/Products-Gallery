@@ -126,7 +126,6 @@ Create a `.env` file in your project root with the following variables:
 
 ````bash
 # API Configuration (Required)
-```bash
 NEXT_PUBLIC_API_URL=https://fakestoreapi.com
 ````
 
