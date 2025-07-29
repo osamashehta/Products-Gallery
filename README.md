@@ -120,13 +120,13 @@ _Optimized mobile experience with touch-friendly navigation_
 
 3. 🌍 **Environment Variables**
 
-Required Environment Variables
+   Required Environment Variables
 
-Create a `.env` file in your project root with the following variables:
+   Create a `.env` file in your project root with the       following variables:
 
 ````bash
-# API Configuration (Required)
-NEXT_PUBLIC_API_URL=https://fakestoreapi.com
+   # API Configuration (Required)
+   NEXT_PUBLIC_API_URL=https://fakestoreapi.com
 ````
 
 4. **Run the development server**
