@@ -118,13 +118,25 @@ _Optimized mobile experience with touch-friendly navigation_
    npm install
    ```
 
-3. **Run the development server**
+3. 🌍 **Environment Variables**
+
+Required Environment Variables
+
+Create a `.env` file in your project root with the following variables:
+
+````bash
+# API Configuration (Required)
+```bash
+NEXT_PUBLIC_API_URL=https://fakestoreapi.com
+````
+
+4. **Run the development server**
 
    ```bash
    pnpm dev
    # or
    npm run dev
-   ```
+````
 
 4. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
